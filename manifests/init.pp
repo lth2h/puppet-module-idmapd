@@ -4,6 +4,7 @@ class idmapd (
   $idmapd_domain,
   $kerberos_realm,
   $rpcidmapd_opts,
+  $idmapd_method,
 ) inherits idmapd::params {
 
   anchor { 'idmapd::begin': }
@@ -18,5 +19,6 @@ Anchor[ 'idmapd::begin' ] -> class { 'idmapd::install': } -> Class['idmapd::conf
     idmapd_domain	=> $idmapd_domain,
     kerberos_realm	=> $kerberos_realm,
     rpcidmapd_opts      => $rpcidmapd_opts,
+    idmapd_method       => $idmapd_method,
   }
 }
